@@ -1,35 +1,26 @@
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-        padding: 10px;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-    .container {
-        width: 100%;
-    }
+/* Estilos generales */
+body {
+    font-size: 16px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    margin: 0;
 }
-
 
 header {
     background-color: #fdcf16;
-    padding: 10px 0;
+    padding: 15px 0;
 }
-
 
 .top-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 30px;
 }
-
 
 .logo img {
-    height: 40px;
+    height: 50px;
 }
-
 
 .menu ul {
     list-style: none;
@@ -38,18 +29,15 @@ header {
     padding: 0;
 }
 
-
 .menu ul li {
     margin-right: 20px;
 }
-
 
 .menu ul li a {
     text-decoration: none;
     color: #000;
     font-weight: bold;
 }
-
 
 .right-menu a {
     text-decoration: none;
@@ -58,19 +46,25 @@ header {
     font-weight: bold;
 }
 
-
+/* Hero (imagen principal) */
 .hero {
     position: relative;
     text-align: center;
 }
 
-
 .hero img {
     width: 100%;
-    height: auto;
+    height: auto; /* Mantener las proporciones */
 }
 
+@media (max-width: 768px) {
+    .hero img {
+        height: 100vh; /* Ocupar toda la altura visible en móviles */
+        object-fit: cover; /* Asegura que la imagen se ajuste completamente */
+    }
+}
 
+/* Overlay para texto */
 .overlay {
     position: absolute;
     top: 50%;
@@ -78,24 +72,78 @@ header {
     transform: translate(-50%, -50%);
     color: #3d657a;
     text-shadow: 2px 2px 5px #000;
+    text-align: center;
 }
-
 
 .overlay h1 {
     font-size: 48px;
     margin: 0;
 }
 
+/* Ajustes de texto en móviles */
+@media (max-width: 768px) {
+    .overlay h1 {
+        font-size: 32px;
+    }
+}
 
+/* Sección de marcas */
 .brands {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-
 .brands img {
     margin: 0 10px;
     height: 50px;
+    object-fit: contain; /* Mantener proporciones sin deformarse */
+    width: auto; /* Ajustar el ancho automáticamente */
 }
 
+/* Ajuste de marcas en móviles */
+@media (max-width: 768px) {
+    .brands {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .brands img {
+        margin: 10px 0;
+        height: 40px;
+        width: auto; /* Mantener proporción correcta */
+        object-fit: contain; /* Evitar que se deforme */
+    }
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    .overlay h1 {
+        font-size: 24px;
+    }
+
+    .brands img {
+        height: 30px;
+        width: auto;
+        object-fit: contain; /* Mantener proporciones en pantallas pequeñas */
+    }
+}
